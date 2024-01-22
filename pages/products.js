@@ -17,13 +17,17 @@ import axios from "axios";
 const posts = () => {
   const [opened, setOpened] = useState("");
   const [courses, setCourses] = useState([]);
+  console.log(courses,"courses")
   const [editData, setEditdata] = useState({});
 const router = useRouter();
 
   useEffect(() => {
     fetch('https://product-details.onrender.com/api/courses')
       .then((response) => response.json())
-      .then((data) => { setCourses(data?.data) })
+      .then((data) => { 
+  console.log(data,"coursesdata")
+        
+        setCourses(data?.data) })
       .catch((error) => console.error('Error fetching data:', error));
   }, []);
   const closeModal = () => {

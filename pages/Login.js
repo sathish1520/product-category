@@ -11,7 +11,7 @@ const router = useRouter();
 
     let config = {  password: values?.password ,email:values?.email,username:values?.username};
 
-    axios.post(`https://product-details.onrender.com/login`,values).then((res)=>{
+    axios.post(`http://localhost:5001/login`,values).then((res)=>{
         // router.reload();
         console.log(res,"loginsucc")
         router.replace("/categorys");
@@ -62,7 +62,7 @@ const router = useRouter();
                       />
                     </Form.Item>
 
-                    <Form.Item
+                    {/* <Form.Item
                       className="input_section"
                       label="Username"
                       name="username"
@@ -78,7 +78,7 @@ const router = useRouter();
                         required
                         maxLength="254"
                       />
-                    </Form.Item>
+                    </Form.Item> */}
 
                     <Form.Item
                       name="password"

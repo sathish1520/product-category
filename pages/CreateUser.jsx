@@ -84,7 +84,7 @@ const CreateUser = ({ closeModal, editData }) => {
     const handleCreate = (value) => {
         value.images = urlList[0].toString()
         if (editData) {
-            axios.put(`https://product-details.onrender.com/api/courses/${editData?._id}`, value).then((res) => {
+            axios.put(`http://localhost:5001/api/courses/${editData?._id}`, value).then((res) => {
                 closeModal(null);
                 message.success('Product edit successfully');
                 router.reload();
@@ -92,7 +92,7 @@ const CreateUser = ({ closeModal, editData }) => {
                 message.error('Error in edit form')
             })
         } else {
-            axios.post(`https://product-details.onrender.com/api/courses/`, value).then((res) => {
+            axios.post(`http://localhost:5001/api/courses`, value).then((res) => {
                 closeModal(null);
                 message.success('Product Created successfully')
                 router.reload();

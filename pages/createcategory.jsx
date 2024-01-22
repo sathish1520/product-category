@@ -26,7 +26,7 @@ const router = useRouter();
     const handleCreate = (value) => {
 
         if(editData){
-            axios.put(`https://product-details.onrender.com/api/category/${editData?._id}`,value).then((res)=>{
+            axios.put(`http://localhost:5001/api/category/${editData?._id}`,value).then((res)=>{
                 closeModal(null);
                 message.success('category edit successfully');
                 router.reload();
@@ -34,7 +34,7 @@ const router = useRouter();
                 message.error('Error in edit form')
             })
         }else{
-            axios.post(`https://product-details.onrender.com/api/category/`,value).then((res)=>{
+            axios.post(`http://localhost:5001/api/category`,value).then((res)=>{
                 closeModal(null);
                 message.success('category Created successfully')
                 router.reload();

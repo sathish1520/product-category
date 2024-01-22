@@ -18,6 +18,8 @@ const menuItems = [
   // { id: 1, label: "Dashboard", icon: HomeIcon, link: "/dashboard" },
   { id: 3, label: "Categorys", icon: UsersIcon, link: "/categorys" },
   { id: 2, label: "Products", icon: ArticleIcon, link: "/products" },
+  { id: 4, label: "AllProducts", icon: VideosIcon, link: "/productsDetailas" },
+
 ];
 
 const Sidebar = () => {

@@ -11,7 +11,7 @@ function RegisterPage() {
 
         let config = { password: values?.password, email: values?.email, username: values?.username };
 
-        axios.post(`https://product-details.onrender.com/register`, values).then((res) => {
+        axios.post(`http://localhost:5001/register`, values).then((res) => {
             // router.reload();
             console.log(res, "loginsucc")
             // router.replace("/categorys");
