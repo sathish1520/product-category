@@ -13,6 +13,7 @@ import { useRouter } from 'next/router';
 import Layout from '../components/Layout'
 import axios from "axios";
 import Createcategory from "./createcategory";
+import { ElearningAxios } from ".";
 // import '../pages/assets/scss/main.scss'
 const Category = () => {
   const [opened, setOpened] = useState("");
@@ -21,7 +22,7 @@ const Category = () => {
 const router = useRouter();
 
   useEffect(() => {
-    fetch('https://product-details.onrender.com/api/category')
+    fetch(ElearningAxios+'/api/category')
       .then((response) => response.json())
       .then((data) => { setCourses(data?.data) })
       .catch((error) => console.error('Error fetching data:', error));
@@ -36,7 +37,7 @@ const router = useRouter();
   }
 
   const handleformDelete=(value)=>{
-    axios.delete(`https://product-details.onrender.com/api/category/${value}`).then((res)=>{
+    axios.delete(ElearningAxios+`/api/category/${value}`).then((res)=>{
       
       message.success('category delete successfully');
       router.reload();

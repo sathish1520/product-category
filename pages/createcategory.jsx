@@ -2,6 +2,7 @@ import { Form, Input, Button, message, InputNumber,Select } from 'antd'
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
+import { ElearningAxios } from '.';
 const Createcategory = ({ closeModal, editData }) => {
     const [form] = Form.useForm();
 const router = useRouter();
@@ -26,7 +27,7 @@ const router = useRouter();
     const handleCreate = (value) => {
 
         if(editData){
-            axios.put(`http://localhost:5001/api/category/${editData?._id}`,value).then((res)=>{
+            axios.put(ElearningAxios+`/api/category/${editData?._id}`,value).then((res)=>{
                 closeModal(null);
                 message.success('category edit successfully');
                 router.reload();
@@ -34,7 +35,7 @@ const router = useRouter();
                 message.error('Error in edit form')
             })
         }else{
-            axios.post(`http://localhost:5001/api/category`,value).then((res)=>{
+            axios.post(ElearningAxios+`/api/category`,value).then((res)=>{
                 closeModal(null);
                 message.success('category Created successfully')
                 router.reload();
@@ -53,7 +54,19 @@ const router = useRouter();
                 <Form.Item name='categorytitle' label={<p className='create_User_lable'>Categorytitle</p>}
                     required={false} rules={[{ required: true, message: "Please enter your categorytitle" }]}
                 >
-                    <Input className="input_height" placeholder="Type your categorytitle" autoComplete="off" />
+                    <Select className="input_height">
+                       
+                                    <Select.Option  value="Cars">
+                                      Cars
+                                    </Select.Option>
+                                    <Select.Option  value="Bike">
+                                      Bike
+                                    </Select.Option>
+                                    <Select.Option  value="Bet">
+                                      Bet
+                                    </Select.Option>
+                           
+                    </Select>
                 </Form.Item>
 
                 <Form.Item name='description' label={<p className='create_User_lable'>Description</p>}

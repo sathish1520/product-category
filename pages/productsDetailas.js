@@ -13,6 +13,7 @@ import { useRouter } from 'next/router';
 import Layout from '../components/Layout'
 import CreateProduct from "./CreateProduct";
 import axios from "axios";
+import { ElearningAxios } from ".";
 
 const ProductsDetailas = () => {
 
@@ -25,7 +26,7 @@ const ProductsDetailas = () => {
   const router = useRouter();
   
     useEffect(() => {
-      fetch('http://localhost:5001/api/Productdetails')
+      fetch(ElearningAxios+'/api/Productdetails')
         .then((response) => response.json())
         .then((data) => { setProduct(data?.data) })
         .catch((error) => console.error('Error fetching data:', error));
@@ -40,7 +41,7 @@ const ProductsDetailas = () => {
     }
   
     const handleformDelete=(value)=>{
-      axios.delete(`http://localhost:5001/api/Productdetails/${value}`).then((res)=>{
+      axios.delete(ElearningAxios+`/api/Productdetails/${value}`).then((res)=>{
         
         message.success('Product delete successfully');
         router.reload();

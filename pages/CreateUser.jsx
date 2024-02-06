@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import uploadimage from '../pages/assets/Image/uploadimage.png'
+import { ElearningAxios } from '.';
 const CreateUser = ({ closeModal, editData }) => {
     const [form] = Form.useForm();
     const [category, setCategory] = useState([]);
@@ -84,7 +85,7 @@ const CreateUser = ({ closeModal, editData }) => {
     const handleCreate = (value) => {
         value.images = urlList[0].toString()
         if (editData) {
-            axios.put(`http://localhost:5001/api/courses/${editData?._id}`, value).then((res) => {
+            axios.put(ElearningAxios+`/api/courses/${editData?._id}`, value).then((res) => {
                 closeModal(null);
                 message.success('Product edit successfully');
                 router.reload();
@@ -92,7 +93,7 @@ const CreateUser = ({ closeModal, editData }) => {
                 message.error('Error in edit form')
             })
         } else {
-            axios.post(`http://localhost:5001/api/courses`, value).then((res) => {
+            axios.post(ElearningAxios+`/api/courses`, value).then((res) => {
                 closeModal(null);
                 message.success('Product Created successfully')
                 router.reload();

@@ -5,6 +5,7 @@ import uploadimage from '../pages/assets/Image/uploadimage.png'
 import Image from 'next/image';
 
 import { useRouter } from 'next/router';
+import { ElearningAxios } from '.';
 const CreateProduct = ({ closeModal, editData }) => {
     const [form] = Form.useForm();
 const router = useRouter();
@@ -17,7 +18,7 @@ const { Dragger } = Upload;
     // edit form open
 
     useEffect(() => {
-        fetch('https://product-details.onrender.com/api/courses')
+        fetch(ElearningAxios+'/api/courses')
             .then((response) => response.json())
             .then((data) => { setCourses(data?.data) })
             .catch((error) => console.error('Error fetching data:', error));
@@ -91,7 +92,7 @@ const { Dragger } = Upload;
         value.carImages = urlList[0].toString()
 
         if(editData){
-            axios.put(`http://localhost:5001/api/Productdetails/${editData?._id}`,value).then((res)=>{
+            axios.put(ElearningAxios+`/api/Productdetails/${editData?._id}`,value).then((res)=>{
                 closeModal(null);
                 message.success('Productdetails edit successfully');
                 router.reload();
@@ -99,7 +100,7 @@ const { Dragger } = Upload;
                 message.error('Error in edit form')
             })
         }else{
-            axios.post(`http://localhost:5001/api/Productdetails/`,value).then((res)=>{
+            axios.post(ElearningAxios+`/api/Productdetails/`,value).then((res)=>{
                 closeModal(null);
                 message.success('Productdetails Created successfully')
                 router.reload();
@@ -128,6 +129,13 @@ const { Dragger } = Upload;
                     <Input className="input_height" placeholder="Type your carPrice" autoComplete="off" />
                 </Form.Item>
 
+                <Form.Item name='contactNo' label={<p className='create_User_lable'>Contact No</p>}
+                    required={false} rules={[{ required: true, message: "Please enter your carPrice" }]}
+
+                >
+                    <Input type='number' className="input_height" placeholder="Type your carPrice" autoComplete="off" />
+                </Form.Item>
+
                 <Form.Item name='carDescription' label={<p className='create_User_lable'>Product Description</p>}
                     required={false} rules={[{ required: true, message: "Please enter your carDescription" }]}
 
@@ -135,6 +143,12 @@ const { Dragger } = Upload;
                     <Input className="input_height" placeholder="Type your carDescription" autoComplete="off" />
                 </Form.Item>
 
+                <Form.Item name='Location' label={<p className='create_User_lable'>Product Location</p>}
+                    required={false} rules={[{ required: true, message: "Please enter your Location" }]}
+
+                >
+                    <Input className="input_height" placeholder="Type your Location" autoComplete="off" />
+                </Form.Item>
 
                 <Form.Item
                     // className="list_content"

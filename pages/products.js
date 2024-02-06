@@ -13,6 +13,7 @@ import { useRouter } from 'next/router';
 import Layout from '../components/Layout'
 import CreateUser from "./CreateUser";
 import axios from "axios";
+import { ElearningAxios } from ".";
 // import '../pages/assets/scss/main.scss'
 const posts = () => {
   const [opened, setOpened] = useState("");
@@ -22,7 +23,7 @@ const posts = () => {
 const router = useRouter();
 
   useEffect(() => {
-    fetch('https://product-details.onrender.com/api/courses')
+    fetch(ElearningAxios+'/api/courses')
       .then((response) => response.json())
       .then((data) => { 
   console.log(data,"coursesdata")
@@ -40,7 +41,7 @@ const router = useRouter();
   }
 
   const handleformDelete=(value)=>{
-    axios.delete(`https://product-details.onrender.com/api/courses/${value}`).then((res)=>{
+    axios.delete(ElearningAxios+`/api/courses/${value}`).then((res)=>{
       
       message.success('Product delete successfully');
       router.reload();

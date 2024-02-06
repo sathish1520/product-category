@@ -2,6 +2,7 @@ import { Button, Form, Input,Row,Col, message } from 'antd';
 import axios from 'axios';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
+import { ElearningAxios } from '.';
 function LoginPage() {
   const [form] = Form.useForm();
 const router = useRouter();
@@ -11,7 +12,7 @@ const router = useRouter();
 
     let config = {  password: values?.password ,email:values?.email,username:values?.username};
 
-    axios.post(`http://localhost:5001/login`,values).then((res)=>{
+    axios.post(ElearningAxios+`/login`,values).then((res)=>{
         // router.reload();
         console.log(res,"loginsucc")
         router.replace("/categorys");
