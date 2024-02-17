@@ -100,7 +100,7 @@ const { Dragger } = Upload;
                 message.error('Error in edit form')
             })
         }else{
-            axios.post(ElearningAxios+`/api/Productdetails/`,value).then((res)=>{
+            axios.post(ElearningAxios+`/api/Productdetails`,value).then((res)=>{
                 closeModal(null);
                 message.success('Productdetails Created successfully')
                 router.reload();
