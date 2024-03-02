@@ -56,7 +56,7 @@ const router = useRouter();
       render: (text, record, index) => index + 1,
     },
     {
-      title: 'Title',
+      title: 'Showroom Name',
       dataIndex: 'title',
 
       sorter: (a, b) => {
@@ -67,15 +67,15 @@ const router = useRouter();
       sortDirections: ['ascend', 'descend'],
     },
     {
-      title: 'Price',
+      title: 'Minimum Price',
       dataIndex: 'price',
     },
     {
-      title: 'Description',
+      title: 'Showroom Description',
       dataIndex: 'description',
     },
     {
-      title: 'Images',
+      title: 'Showroom Logo',
       render: (value) => {
         return (
           <img src={value?.images} width={30} height={30}/>
@@ -85,7 +85,7 @@ const router = useRouter();
 
     },
     {
-      title: 'Category',
+      title: 'Showroom Category',
       render: (value) => {
         return (
           <p>{value?.category?.categorytitle}</p>
@@ -94,7 +94,7 @@ const router = useRouter();
       }
     },
     {
-      title: 'Customer',
+      title: 'Showroom Owner',
       dataIndex: 'author',
     },
     {
@@ -131,13 +131,13 @@ const router = useRouter();
 
         <div className='container-fluid' >
           <div className='create_user'>
-            <h1>Product Details</h1>
+            <h1>Showroom Details</h1>
             <Button
               className="add_user"
               icon={<PlusOutlined />}
               onClick={() => setOpened("create")}
             >
-              Create New Product
+              Create New Showroom
             </Button>
           </div>
           <Table columns={columns} dataSource={courses} />
@@ -151,8 +151,8 @@ const router = useRouter();
             title={
               <div className="create_user_sec">
                
-                {opened === "create" ? <h2>Create Product</h2> : <></>}
-                {opened === "edit" ? <h2>Edit Product</h2> : <></>}
+                {opened === "create" ? <h2>Create Showroom</h2> : <></>}
+                {opened === "edit" ? <h2>Edit Showroom</h2> : <></>}
 
               </div>
             }

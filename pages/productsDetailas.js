@@ -85,7 +85,7 @@ const ProductsDetailas = () => {
   
       },
       {
-        title: 'Category',
+        title: 'Showroom',
         render: (value) => {
           return (
             <p>{value?.CarShowroom?.title}</p>

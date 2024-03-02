@@ -109,40 +109,40 @@ const CreateUser = ({ closeModal, editData }) => {
             <Form form={form} layout="vertical" onFinish={handleCreate}>
 
 
-                <Form.Item name='title' label={<p className='create_User_lable'>Title</p>}
-                    required={false} rules={[{ required: true, message: "Please enter your title" }]}
+                <Form.Item name='title' label={<p className='create_User_lable'>Showroom Name</p>}
+                    required={false} rules={[{ required: true, message: "Please enter  Showroom Name" }]}
                 >
-                    <Input className="input_height" placeholder="Type your title" autoComplete="off" />
+                    <Input className="input_height" placeholder="Type  Showroom Name" autoComplete="off" />
                 </Form.Item>
 
-                <Form.Item name='description' label={<p className='create_User_lable'>Description</p>}
-                    required={false} rules={[{ required: true, message: "Please enter your description" }]}
+                <Form.Item name='description' label={<p className='create_User_lable'>Showroom Description</p>}
+                    required={false} rules={[{ required: true, message: "Please enter  Showroom description" }]}
 
                 >
-                    <Input className="input_height" placeholder="Type your description" autoComplete="off" />
+                    <Input className="input_height" placeholder="Type  Showroom description" autoComplete="off" />
                 </Form.Item>
 
-                <Form.Item name='price' label={<p className='create_User_lable'>Price</p>}
-                    required={false} rules={[{ required: true, message: "Please enter your price" }]}
+                <Form.Item name='price' label={<p className='create_User_lable'>Minimum Price</p>}
+                    required={false} rules={[{ required: true, message: "Please enter  Minimum Price" }]}
 
 
                 >
-                    <InputNumber className="input_height" placeholder="Type your email" autoComplete="off" />
+                    <InputNumber className="input_height" placeholder="Minimum Price" autoComplete="off" />
                 </Form.Item>
 
-                <Form.Item name='author' label={<p className='create_User_lable'>Customer</p>}
-                    required={false} rules={[{ required: true, message: "Please enter  Customer" }]}
+                <Form.Item name='author' label={<p className='create_User_lable'>Showroom Owner</p>}
+                    required={false} rules={[{ required: true, message: "Please enter  Showroom Owner" }]}
 
                 >
-                    <Input maxLength={10} className="input_height" placeholder="Customer Name" autoComplete="off" />
+                    <Input maxLength={10} className="input_height" placeholder="Showroom Owner Name" autoComplete="off" />
                 </Form.Item>
 
 
                 <Form.Item
                     // className="list_content"
-                    label={<p className='create_User_lable'>Category</p>}
+                    label={<p className='create_User_lable'>Showroom Category</p>}
                     name="category"
-                    required={false} rules={[{ required: true, message: "Please enter your category" }]}
+                    required={false} rules={[{ required: true, message: "Please enter your Showroom category" }]}
                 >
                     <Select className="input_height">
                         {category?.map(
@@ -160,7 +160,7 @@ const CreateUser = ({ closeModal, editData }) => {
                 </Form.Item>
                 <Form.Item
                         style={{ marginTop: "20px" }}
-                        label="Upload Thumbnail Photo"
+                        label="Showroom Logo"
                         className="label_font"
 
                     // required={false} rules={[{ required: true, message: "Please  Upload your thumbnail photo" }]}
@@ -217,7 +217,7 @@ const CreateUser = ({ closeModal, editData }) => {
 
 
                     <Form.Item>
-                        <Button type="primary" htmlType="submit" className='create_bttn'>{editData?.id ? "Edit" : "Create"} Product</Button>
+                        <Button type="primary" htmlType="submit" className='create_bttn'>{editData?.id ? "Edit" : "Create"} Showroom</Button>
                     </Form.Item>
                 </div>
 

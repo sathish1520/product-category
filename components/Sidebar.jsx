@@ -17,8 +17,8 @@ import Image from "next/image";
 const menuItems = [
   // { id: 1, label: "Dashboard", icon: HomeIcon, link: "/dashboard" },
   { id: 3, label: "Categorys", icon: UsersIcon, link: "/categorys" },
-  { id: 2, label: "Products", icon: ArticleIcon, link: "/products" },
-  { id: 4, label: "AllProducts", icon: VideosIcon, link: "/productsDetailas" },
+  { id: 2, label: "Showroom", icon: ArticleIcon, link: "/products" },
+  { id: 4, label: "Products", icon: VideosIcon, link: "/productsDetailas" },
 
 ];
 
@@ -51,7 +51,7 @@ const Sidebar = () => {
     return classNames(
       "flex items-center cursor-pointer hover:bg-light-lighter rounded w-full overflow-hidden whitespace-nowrap",
       {
-        ["bg-light-lighter"]: activeMenu.id  === menu.id ,
+        ["bg-light-lighter"]: activeMenu?.id  === menu?.id ,
       }
     );
   };
