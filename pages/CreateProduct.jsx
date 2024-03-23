@@ -128,6 +128,42 @@ const { Dragger } = Upload;
                 >
                     <Input className="input_height" placeholder="Type your carPrice" autoComplete="off" />
                 </Form.Item>
+                <Form.Item
+                    // className="list_content"
+                    label={<p className='create_User_lable'>Fuel</p>}
+                    name="fuel"
+                    required={false} rules={[{ required: true, message: "Please enter fuel Type" }]}
+                >
+                    <Select className="input_height">
+                      
+                                    <Select.Option  value='Pertrol'>
+                                        Pertrol
+                                    </Select.Option>
+                                    <Select.Option  value='Diesel'>
+                                    Diesel
+                                    </Select.Option>
+                                    <Select.Option  value='Gas'>
+                                    Gas
+                                    </Select.Option>
+                                
+                    </Select>
+
+                   
+                </Form.Item>
+
+
+                <Form.Item name='model' label={<p className='create_User_lable'>Product Model</p>}
+                    required={false} 
+                >
+                    <Input type='text' className="input_height" placeholder="Type your Model" autoComplete="off" />
+                </Form.Item>
+
+                <Form.Item name='kiloM' label={<p className='create_User_lable'>Total kiloMetar</p>}
+                    required={false} 
+                >
+                    <Input type='text' className="input_height" placeholder="Type your kiloM" autoComplete="off" />
+                </Form.Item>
+
 
                 <Form.Item name='contactNo' label={<p className='create_User_lable'>Contact No</p>}
                     required={false} rules={[{ required: true, message: "Please enter your carPrice" }]}
@@ -135,6 +171,7 @@ const { Dragger } = Upload;
                 >
                     <Input type='number' className="input_height" placeholder="Type your carPrice" autoComplete="off" />
                 </Form.Item>
+                
 
                 <Form.Item name='carDescription' label={<p className='create_User_lable'>Product Description</p>}
                     required={false} rules={[{ required: true, message: "Please enter your carDescription" }]}
